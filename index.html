@@ -1,0 +1,326 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rayongfrozenfish</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            position: relative; 
+        }
+
+        header {
+            background-color: #444; 
+            padding: 20px;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav img {
+            height: 150px;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        aside {
+            width: 20%;
+            background-color: #f5f5f5;
+            padding: 15px;
+            height: 100vh;
+            overflow-y: auto;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .side-menu {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .side-menu li {
+            margin: 10px 0;
+        }
+
+        .side-menu button {
+            width: 100%;
+            padding: 12px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.3s ease;
+        }
+
+        .side-menu button:hover {
+            background-color: #555; 
+        }
+
+        .sub-menu {
+            display: none;
+            padding-left: 15px;
+        }
+
+        main {
+            width: 80%;
+            padding: 15px;
+            position: relative; 
+        }
+
+        #watermark {
+            position: fixed; 
+            top: 70%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            opacity: 0.1;
+            z-index: 1; 
+            pointer-events: none; 
+        }
+
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            position: relative; 
+            z-index: 2; 
+        }
+
+        .product-item {
+            border: 1px solid #ddd; 
+            border-radius: 5px;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: box-shadow 0.3s ease; 
+        }
+
+        .product-item:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+        }
+
+        .product-images {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .product-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .product-item h2,
+        .product-item p {
+            margin: 10px 0;
+        }
+
+        footer {
+            background-color: #444; 
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .contact-icons {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+            transition: transform 0.2s;
+        }
+
+        .contact-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .description {
+            display: block; 
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav style="display: flex; justify-content: center; align-items: center;">
+            <img src="images/logo.png" alt="โลโก้" style="height: 200px; margin-right: 0px;">
+            <ul style="display: flex; align-items: center; margin: 0; padding: 0; list-style-type: none;"></ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <aside>
+            <ul class="side-menu">
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-1')">ปลาทูเวียดนาม</button>
+                    <ul class="sub-menu" id="sub-menu-1">
+                        <li><button onclick="showProducts('room1')">ปลาทูเวียดนาม 4/6</button></li>
+                        <li><button onclick="showProducts('room1-detail')">ปลาทูเวียดนาม 5/7</button></li>
+                        <li><button onclick="showProducts('room1-detail')">ปลาทูเวียดนาม 8/10</button></li>
+                        <li><button onclick="showProducts('room1-detail')">ปลาทูเวียดนาม 8/12</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-2')">ห้องบลู7</button>
+                    <ul class="sub-menu" id="sub-menu-2">
+                        <li><button onclick="showProducts('room2')">หมวดหมู่ย่อย 1</button></li>
+                        <li><button onclick="showProducts('room2-detail')">หมวดหมู่ย่อย 2</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-3')">ห้องบลู8</button>
+                    <ul class="sub-menu" id="sub-menu-3">
+                        <li><button onclick="showProducts('room3')">หมวดหมู่ย่อย 1</button></li>
+                        <li><button onclick="showProducts('room3-detail')">หมวดหมู่ย่อย 2</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-4')">ห้องบลู9</button>
+                    <ul class="sub-menu" id="sub-menu-4">
+                        <li><button onclick="showProducts('room4')">หมวดหมู่ย่อย 1</button></li>
+                        <li><button onclick="showProducts('room4-detail')">หมวดหมู่ย่อย 2</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-5')">ห้องบลู10</button>
+                    <ul class="sub-menu" id="sub-menu-5">
+                        <li><button onclick="showProducts('room5')">หมวดหมู่ย่อย 1</button></li>
+                        <li><button onclick="showProducts('room5-detail')">หมวดหมู่ย่อย 2</button></li>
+                    </ul>
+                </li>
+            </ul>
+        </aside>
+
+        <main>
+            <div id="watermark">
+                <img src="images/watermark.png" alt="Watermark" style="width: 500px; height: auto;">
+            </div>
+
+            <!-- คำอธิบายที่จะแสดงเมื่อเข้าเว็บไซต์ -->
+            <div class="description" id="website-description">
+                <h2>ยินดีต้อนรับสู่ Rayong Frozen Fish</h2>
+                <p>เรามีสินค้าปลาหรืออาหารทะเลแช่แข็งหลากหลายชนิด สำหรับร้านอาหารและบุคคลทั่วไป</p>
+            </div>
+
+            <!-- ประเภทสินค้าหรือห้องต่างๆ -->
+            <div id="room1" class="product-list" style="display: none;">
+                <section class="product-item">
+                    <div class="product-images">
+                        <img src="images/frozen_fish.jpg" alt="ปลาแช่แข็ง" class="product-image">
+                        <img src="images/frozenfish2.jpg" alt="ปลาแช่แข็ง 2" class="product-image">
+                    </div>
+                    <h2>40-60 เม็ดบาน</h2>
+                    <p>ราคา: 850.00฿ (35 กล่อง)</p>
+                </section>
+                <section class="product-item">
+                    <img src="images/frozen_fish.jpg" alt="ปลาซาบะ" class="product-image">
+                    <h2>ปลาซาบะ</h2>
+                    <p>ในกล่องมีประมาณ 20 ตัว</p>
+                </section>
+                <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
+            </div>
+
+            <div id="room1-detail" class="product-list" style="display: none;">
+                <section class="product-item">
+                    <img src="images/detail_room1.jpg" alt="รายละเอียดผลิตภัณฑ์ห้องบลู4-6" class="product-image">
+                    <h2>รายละเอียดเพิ่มเติม (ห้องบลู4-6)</h2>
+                    <p>ข้อมูลเกี่ยวกับห้องบลู4-6 กับสินค้าที่เกี่ยวข้อง.</p>
+                </section>
+                <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
+            </div>
+
+            <div id="room2" class="product-list" style="display: none;">
+                <section class="product-item">
+                    <img src="images/frozen_shrimp.jpg" alt="กุ้งแช่แข็ง" class="product-image">
+                    <h2>กุ้งแช่แข็งขนาด 30-40 ตัว</h2>
+                    <p>ราคา: 900.00฿ (30 กล่อง)</p>
+                </section>
+                <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
+            </div>
+
+            <!-- รายละเอียดและประเภทสินค้าห้องต่าง ๆ ที่เหลือ -->
+            <!-- ... -->
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2023 เว็บไซต์สินค้า | สงวนลิขสิทธิ์</p>
+    </footer>
+
+    <div class="contact-icons">
+        <a href="https://line.me/ti/p/~YOURLINEID" target="_blank">
+            <img src="images/line_icon.png" alt="LINE" class="contact-icon">
+        </a>
+        <a href="https://m.me/YOURFACEBOOKID" target="_blank">
+            <img src="images/facebook_icon.png" alt="Facebook" class="contact-icon">
+        </a>
+    </div>
+
+    <script>
+        function toggleSubMenu(subMenuId) {
+            const subMenu = document.getElementById(subMenuId);
+            if (subMenu.style.display === "block") {
+                subMenu.style.display = "none";
+            } else {
+                closeAllSubMenus();
+                subMenu.style.display = "block";
+            }
+        }
+
+        function closeAllSubMenus() {
+            const subMenus = document.querySelectorAll('.sub-menu');
+            subMenus.forEach(function(menu) {
+                menu.style.display = 'none';
+            });
+        }
+
+        function showProducts(room) {
+            // ซ่อนคำอธิบาย
+            document.getElementById('website-description').style.display = 'none';
+
+            const productLists = document.querySelectorAll('.product-list');
+            productLists.forEach(function(list) {
+                list.style.display = 'none';
+            });
+
+            const selectedRoom = document.getElementById(room);
+            if (selectedRoom) {
+                selectedRoom.style.display = 'block';
+            } else {
+                console.log("ไม่พบห้องนี้");
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+        });
+    </script>
+</body>
+</html>
