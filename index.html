@@ -1,17 +1,17 @@
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rayongfrozenfish</title>
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
             background-color: #ffffff;
-            position: relative; 
         }
 
         header {
@@ -69,7 +69,30 @@
 
         .sub-menu {
             display: none;
-            padding-left: 15px;
+            padding-left: 0; 
+            background-color: #f5f5f5; 
+            border: 1px solid #ccc; 
+            border-radius: 5px; 
+            margin-top: 5px;
+            padding-top: 5px; 
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+        }
+
+        .sub-menu li {
+            margin: 5px 0; 
+        }
+
+        .sub-menu li button {
+            background-color: transparent; 
+            color: #333; 
+            border: none; 
+            text-align: left; 
+            padding: 8px 12px;
+            transition: background-color 0.3s ease; 
+        }
+
+        .sub-menu li button:hover {
+            background-color: #bbb; 
         }
 
         main {
@@ -165,6 +188,36 @@
             text-align: center;
         }
 
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column; 
+            }
+
+            aside {
+                width: 100%; 
+                height: auto; 
+                box-shadow: none; 
+            }
+
+            main {
+                width: 100%; 
+                padding: 10px; 
+            }
+
+            .side-menu button {
+                padding: 10px; 
+            }
+
+            .product-image {
+                width: 100%; 
+                height: auto; 
+            }
+
+            .product-list {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+            }
+        }
+
     </style>
 </head>
 
@@ -213,7 +266,7 @@
                     <button onclick="toggleSubMenu('sub-menu-5')">ห้องบลู10</button>
                     <ul class="sub-menu" id="sub-menu-5">
                         <li><button onclick="showProducts('room5')">หมวดหมู่ย่อย 1</button></li>
-                        <li><button onclick="showProducts('room5-detail')">หมวดหมู่ย่อย 2</button></li>
+                        <li><button onclick="showProducts('room5-detail')">หมวดหมู่อยู่ 2</button></li>
                     </ul>
                 </li>
             </ul>
@@ -319,8 +372,7 @@
             }
         }
 
-        document.addEventListener('DOMContentLoaded', function() {
-        });
+        document.addEventListener('DOMContentLoaded', function() {});
     </script>
 </body>
 </html>
