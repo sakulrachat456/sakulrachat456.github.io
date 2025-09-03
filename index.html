@@ -1,12 +1,13 @@
 
 <!DOCTYPE html>
 <html lang="th">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rayongfrozenfish</title>
     <style>
-        body {
+       body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -16,7 +17,12 @@
         header {
             background-color: #444; 
             padding: 20px;
-            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav img {
@@ -25,12 +31,10 @@
 
         .container {
             display: flex;
-            flex-wrap: wrap; 
         }
 
         aside {
-            flex: 1;
-            min-width: 200px; 
+            width: 20%;
             background-color: #f5f5f5;
             padding: 15px;
             height: 100vh;
@@ -58,16 +62,16 @@
             text-align: left;
             transition: background-color 0.3s ease;
         }
-        
+
         .side-menu button:hover {
             background-color: #555; 
         }
 
         .sub-menu {
             display: none;
-            padding-left: 1; 
+            padding-left: 2; 
             background-color: #f5f5f5; 
-            border: 3px solid #ccc; 
+            border: 2px solid #ccc; 
             border-radius: 5px; 
             margin-top: 5px;
             padding-top: 5px; 
@@ -92,7 +96,7 @@
         }
 
         main {
-            flex: 3; 
+            width: 80%;
             padding: 15px;
             position: relative; 
         }
@@ -138,9 +142,8 @@
         }
 
         .product-image {
-            width: 100%;
-            height: auto;
-            max-width: 250px; 
+            width: 250px;
+            height: 250px;
             border-radius: 5px;
             object-fit: cover;
         }
@@ -187,6 +190,10 @@
         }
 
         @media (max-width: 768px) {
+            .container {
+                flex-direction: column; 
+            }
+
             aside {
                 width: 100%; 
                 height: auto; 
@@ -211,14 +218,14 @@
                 grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
             }
         }
-        
+
     </style>
 </head>
 
 <body>
     <header>
-        <nav>
-            <img src="images/logo.png" alt="โลโก้">
+        <nav style="display: flex; justify-content: center; align-items: center;">
+            <img src="images/logo.png" alt="โลโก้" style="height: 200px; margin-right: 0px;">
             <ul style="display: flex; align-items: center; margin: 0; padding: 0; list-style-type: none;"></ul>
         </nav>
     </header>
@@ -271,11 +278,13 @@
                 <img src="images/watermark.png" alt="Watermark" style="width: 500px; height: auto;">
             </div>
 
+            <!-- คำอธิบายที่จะแสดงเมื่อเข้าเว็บไซต์ -->
             <div class="description" id="website-description">
                 <h2>ยินดีต้อนรับสู่ Rayong Frozen Fish</h2>
                 <p>เรามีสินค้าปลาหรืออาหารทะเลแช่แข็งหลากหลายชนิด สำหรับร้านอาหารและบุคคลทั่วไป</p>
             </div>
 
+            <!-- ประเภทสินค้าหรือห้องต่างๆ -->
             <div id="room1" class="product-list" style="display: none;">
                 <section class="product-item">
                     <div class="product-images">
@@ -311,6 +320,8 @@
                 <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
             </div>
 
+            <!-- รายละเอียดและประเภทสินค้าห้องต่าง ๆ ที่เหลือ -->
+            <!-- ... -->
         </main>
     </div>
 
@@ -346,6 +357,7 @@
         }
 
         function showProducts(room) {
+            // ซ่อนคำอธิบาย
             document.getElementById('website-description').style.display = 'none';
 
             const productLists = document.querySelectorAll('.product-list');
@@ -365,3 +377,4 @@
     </script>
 </body>
 </html>
+
