@@ -32,9 +32,10 @@
             width: 20%; 
             background-color: #f5f5f5;
             padding: 0; 
-            height: 100vh;
+            height: 70vh;
             overflow-y: auto;
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
         }
 
         .side-menu {
@@ -197,7 +198,8 @@
         aside {
             width: 100%; 
             height: auto; 
-            box-shadow: none; 
+            box-shadow: none;
+            display: none; 
         }
 
         main {
@@ -330,6 +332,57 @@
                         <li><button onclick="showProducts('room8-11')">ปลาทูโอมาน 8/10A</button></li>
                     </ul>
                 </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-9')">ปลาขาไก่</button>
+                    <ul class="sub-menu" id="sub-menu-9">
+                        <li><button onclick="showProducts('room9-1')">ปลาขาไก่ใหญ่</button></li>
+                        <li><button onclick="showProducts('room9-2')">ปลาขาไก่ 2/4 กล่องน้ำตาล</button></li>
+                        <li><button onclick="showProducts('room9-3')">ปลาขาไก่ 3A</button></li>
+                        <li><button onclick="showProducts('room9-4')">ปลาขาไก่ 5A</button></li>
+                        <li><button onclick="showProducts('room9-5')">ปลาขาไก่ 10/12เวียดนาม</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-10')">ปลาจวดเทียน/โปร่ง</button>
+                    <ul class="sub-menu" id="sub-menu-10">
+                        <li><button onclick="showProducts('room10-1')">ปลาจวดเทียน</button></li>
+                        <li><button onclick="showProducts('room10-2')">ปลาจวดโปร่ง 5/1</button></li>
+                        <li><button onclick="showProducts('room10-3')">ปลาจวดโปร่ง 6/7</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-11')">ปลาซาบะ นอเวย์/จีน/ไต้หวัน</button>
+                    <ul class="sub-menu" id="sub-menu-11">
+                        <li><button onclick="showProducts('room11-1')">ปลาซาบะนอเวย์ 400/600</button></li>
+                        <li><button onclick="showProducts('room11-2')">ปลาซาบะจีน 200/300AAA</button></li>
+                        <li><button onclick="showProducts('room11-3')">ปลาซาบะจีน 500/600</button></li>
+                        <li><button onclick="showProducts('room11-4')">ปลาซาบะไต้หวัน 15/20</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-12')">ปลาตาโต</button>
+                    <ul class="sub-menu" id="sub-menu-12">
+                        <li><button onclick="showProducts('room12-1')">ปลาตาโต 5/6</button></li>
+                        <li><button onclick="showProducts('room12-2')">ปลาตาโต 6/8</button></li>
+                        <li><button onclick="showProducts('room12-3')">ปลาตาโต 8/10</button></li>
+                        <li><button onclick="showProducts('room12-4')">ปลาตาโต 10/12</button></li>
+                        <li><button onclick="showProducts('room12-5')">ปลาตาโต P</button></li>
+                        <li><button onclick="showProducts('room12-6')">ปลาตาโต 2/4 นอก</button></li>
+                        <li><button onclick="showProducts('room12-7')">ปลาตาโต 4/6 นอก</button></li>
+                    </ul>
+                </li>
+                <li>
+                    <button onclick="toggleSubMenu('sub-menu-13')">ปลานกยาง</button>
+                    <ul class="sub-menu" id="sub-menu-13">
+                        <li><button onclick="showProducts('room13-1')">ปลานกยาง 200/300</button></li>
+                        <li><button onclick="showProducts('room13-2')">ปลานกยาง 300/500</button></li>
+                        <li><button onclick="showProducts('room13-3')">ปลานกยาง 500/700</button></li>
+                        <li><button onclick="showProducts('room13-4')">ปลานกยาง 700/1000</button></li>
+                        <li><button onclick="showProducts('room13-5')">ปลานกยาง 4/1</button></li>
+                        <li><button onclick="showProducts('room13-6')">ปลานกยาง 5/1</button></li>
+                        <li><button onclick="showProducts('room13-7')">ปลานกยาง 6/1</button></li>
+                    </ul>
+                </li>
             </ul>
         </aside>
 
@@ -408,6 +461,15 @@
     </div>
 
     <script>
+        function toggleMenu() {
+            const menu = document.getElementById('menu');
+            if (menu.style.display === "none" || menu.style.display === "") {
+                menu.style.display = "block"; // แสดงเมนู
+            } else {
+                menu.style.display = "none"; // ซ่อนเมนู
+            }
+        }
+
         function toggleSubMenu(subMenuId) {
             const subMenu = document.getElementById(subMenuId);
             if (subMenu.style.display === "block") {
