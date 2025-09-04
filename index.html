@@ -26,6 +26,7 @@
 
         .container {
             display: flex;
+            flex-wrap: wrap;
         }
 
         aside {
@@ -191,15 +192,14 @@
 
         @media (max-width: 768px) {
             .container {
-            flex-direction: column;
-            height: auto; 
+            flex-direction: column; 
         }
 
         aside {
             width: 100%; 
             height: auto; 
             box-shadow: none;
-            display: none; 
+            display: block; 
         }
 
         main {
@@ -211,13 +211,14 @@
             padding: 10px; 
         }
 
+
         .product-image {
             width: 100%; 
             height: auto; 
         }
 
         .product-list {
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); 
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); 
         }
 
         header {
