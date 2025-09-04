@@ -32,7 +32,7 @@
             width: 20%; 
             background-color: #f5f5f5;
             padding: 0; 
-            max-height: 70vh;
+            max-height: 70vh; 
             overflow-y: auto; 
             box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
             transition: 0.3s;
@@ -197,7 +197,10 @@
 
             aside {
                 width: 100%; 
+                max-height: 50vh; 
+                box-shadow: none; 
                 display: block;
+                overflow-y: auto;
             }
 
             main {
@@ -235,7 +238,6 @@
                 padding-left: 10px; 
             }
         }
-
     </style>
 </head>
 
@@ -390,13 +392,11 @@
                 <img src="images/watermark.png" alt="Watermark" style="width: 500px; height: auto;">
             </div>
 
-            <!-- คำอธิบายที่จะแสดงเมื่อเข้าเว็บไซต์ -->
             <div class="description" id="website-description">
                 <h2>ยินดีต้อนรับสู่ Rayong Frozen Fish</h2>
                 <p>เรามีสินค้าปลาหรืออาหารทะเลแช่แข็งหลากหลายชนิด สำหรับร้านอาหารและบุคคลทั่วไป</p>
             </div>
 
-            <!-- ประเภทสินค้าหรือห้องต่างๆ -->
             <div id="room1-1" class="product-list" style="display: none;">
                 <section class="product-item">
                     <div class="product-images">
@@ -410,15 +410,6 @@
                     <img src="images/frozen_fish.png" alt="ปลาซาบะ" class="product-image">
                     <h2>ปลาซาบะ</h2>
                     <p>ในกล่องมีประมาณ 20 ตัว</p>
-                </section>
-                <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
-            </div>
-
-            <div id="room1-2" class="product-list" style="display: none;">
-                <section class="product-item">
-                    <img src="images/detail_room1-1.jpg" alt="รายละเอียดผลิตภัณฑ์ห้องบลู4-6" class="product-image">
-                    <h2>รายละเอียดเพิ่มเติม (ห้องบลู4-6)</h2>
-                    <p>ข้อมูลเกี่ยวกับห้องบลู4-6 กับสินค้าที่เกี่ยวข้อง.</p>
                 </section>
                 <!-- ...ผลิตภัณฑ์อื่น ๆ ... -->
             </div>
